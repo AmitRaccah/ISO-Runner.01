@@ -10,10 +10,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{860F9E5B-3F91-0987-D2D4-ACD3F10FF304}</ProjectGuid>
+    <ProjectGuid>{BD85F41A-DD01-DBCF-9DA3-0E696F90B4A0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <AssemblyName>Unity.TextMeshPro.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -61,7 +61,64 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.3f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\TMP_MarkToMarkAdjustmentRecordPropertyDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_SettingsEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_InputFieldEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_StyleAssetMenu.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMPro_SortingLayerHelper.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_BaseShaderGUI.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_EditorPanelUI.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMPro_CreateObjectMenu.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\TMP_GlyphPropertyDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_SubMesh_Editor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_EditorPanel.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_ColorGradientEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\HDRP\TMP_SDF_HDRPLitShaderGUI.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMPro_TexturePostProcessor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_ProjectTextSettings.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\TMP_TextAlignmentDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\TMP_CharacterPropertyDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_MarkupTagUpdateUtility.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_SpriteAssetMenu.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\HDRP\TMP_BaseHDRPUnlitShaderGUI.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_PreBuildProcessor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMPro_TextContainerEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_BitmapShaderGUI.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\GlyphMetricsPropertyDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_SpriteAssetImporter.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\HDRP\TMP_BaseHDRPLitShaderGUI.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_DropdownEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMPro_ContextMenus.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMPro_EditorShaderUtilities.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_SubMeshUI_Editor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_SpriteAssetEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\HDRP\TMP_SDF_HDRPUnlitShaderGUI.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_EditorCoroutine.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_UIStyleManager.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\TMP_SpriteGlyphPropertyDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_ResourcesLoader.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMPro_FontAssetCreatorWindow.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_EditorUtility.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_EditorResourceManager.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\TMP_SpriteCharacterPropertyDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_StyleSheetEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\GlyphPairAdjustmentRecordPropertyDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\DropdownOptionListDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\LigatureSubstitutionRecordPropertyDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_FontAssetEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\GlyphRectPropertyDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_SDFShaderGUI.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_FontAsset_CreationMenu.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_PostBuildProcessHandler.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\TMP_MarkToBaseAdjustmentRecordPropertyDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_BaseEditorPanel.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_ColorGradientAssetMenu.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_PackageUtilities.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\TMP_SerializedPropertyHolder.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\PropertyDrawers\TMP_PropertyDrawerUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Library\PackageCache\com.unity.ugui@8873725e650d\Editor\TMP\Unity.TextMeshPro.Editor.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1172,115 +1229,23 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.3.3f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.AI.Navigation">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.AI.Navigation.Updater">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.AI.Navigation.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Burst.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Collections">
-      <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Mathematics">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Burst">
-      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Collections.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.InputSystem">
-      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{29B90461-24D3-4E40-E126-6C2ECCF7A889}</Project>
-      <Name>Assembly-CSharp</Name>
+    <ProjectReference Include="Unity.TextMeshPro.csproj">
+      <Project>{404ABC48-14F3-DE8A-DD4F-3732199D7576}</Project>
+      <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
+      <Project>{9D66A925-F35E-5906-B12A-46F4AE8AF52C}</Project>
+      <Name>Unity.RenderPipelines.Core.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{98B1BEF4-07E1-EEFD-1F01-873547AE90DD}</Project>
+      <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{01C532D8-C7F8-88D1-373D-BE0DE50208A8}</Project>
+      <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
       <Project>{7931A9BE-1D96-1D22-B472-BD90295F2932}</Project>
@@ -1289,106 +1254,6 @@
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
       <Project>{8BDA16F4-7BAB-3324-1146-44113210546E}</Project>
       <Name>UnityEngine.TestRunner</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.Editor.csproj">
-      <Project>{BA7F1D45-43AE-3A2D-9554-5FB37BDAA4A8}</Project>
-      <Name>Unity.RenderPipelines.Core.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.TextMeshPro.csproj">
-      <Project>{404ABC48-14F3-DE8A-DD4F-3732199D7576}</Project>
-      <Name>Unity.TextMeshPro</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Rendering.LightTransport.Editor.csproj">
-      <Project>{DB86D081-8371-4521-F80A-490324662299}</Project>
-      <Name>Unity.Rendering.LightTransport.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.csproj">
-      <Project>{7A5BBE89-8993-13A8-B01C-7763396EF03F}</Project>
-      <Name>Unity.RenderPipelines.Core.ShaderLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.2D.Editor.Overrides.csproj">
-      <Project>{9D08979C-D7E2-60CD-BED8-A114B7A5D74B}</Project>
-      <Name>Unity.RenderPipelines.Universal.2D.Editor.Overrides</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
-      <Project>{34EB4E64-4A6F-ADBF-4B21-B292329C0EA0}</Project>
-      <Name>Unity.RenderPipelines.Universal.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="PPv2URPConverters.csproj">
-      <Project>{EEFEF146-3D6C-06CC-7815-06E392DC62DC}</Project>
-      <Name>PPv2URPConverters</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.Shared.csproj">
-      <Project>{260E8873-3CDD-B595-2DF9-CB06FE5B0771}</Project>
-      <Name>Unity.RenderPipelines.Core.Runtime.Shared</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.2D.Runtime.csproj">
-      <Project>{94A41451-FCA6-5642-08CB-56A12EB1791F}</Project>
-      <Name>Unity.RenderPipelines.Universal.2D.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.UnifiedRayTracing.Runtime.csproj">
-      <Project>{9DD80031-B77B-7777-DEBF-B4E44FB8BB73}</Project>
-      <Name>Unity.UnifiedRayTracing.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.csproj">
-      <Project>{3DB25620-2079-7AE5-4596-A61BEB6D0591}</Project>
-      <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
-      <Project>{9D66A925-F35E-5906-B12A-46F4AE8AF52C}</Project>
-      <Name>Unity.RenderPipelines.Core.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
-      <Project>{BD85F41A-DD01-DBCF-9DA3-0E696F90B4A0}</Project>
-      <Name>Unity.TextMeshPro.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.GPUDriven.Runtime.csproj">
-      <Project>{8F3DF691-494C-BF8D-35F3-34027392D23E}</Project>
-      <Name>Unity.RenderPipelines.GPUDriven.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Shaders.csproj">
-      <Project>{A839453B-D8BD-059A-22F3-48284AA0381D}</Project>
-      <Name>Unity.RenderPipelines.Universal.Shaders</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{01C532D8-C7F8-88D1-373D-BE0DE50208A8}</Project>
-      <Name>UnityEngine.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Multiplayer.Center.Common.csproj">
-      <Project>{67A7A2F3-2FB4-FDB9-AFE1-83D9C0093755}</Project>
-      <Name>Unity.Multiplayer.Center.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.InternalAPIEngineBridge.004.csproj">
-      <Project>{0158047C-3313-8280-4FD0-A19172D9AC16}</Project>
-      <Name>Unity.InternalAPIEngineBridge.004</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Multiplayer.Center.Editor.csproj">
-      <Project>{19F3F64D-D946-4B60-620B-E8C982A5D129}</Project>
-      <Name>Unity.Multiplayer.Center.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Runtime.csproj">
-      <Project>{FECF2C12-F0D2-CB68-3C76-FB8F158C5718}</Project>
-      <Name>Unity.RenderPipelines.Universal.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Config.Runtime.csproj">
-      <Project>{097EC6EC-AB5E-6F00-A3E3-9BCD70A00816}</Project>
-      <Name>Unity.RenderPipelines.Universal.Config.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipeline.Universal.ShaderLibrary.csproj">
-      <Project>{CE38A75E-E9FE-C384-D0AC-CF2EA930768A}</Project>
-      <Name>Unity.RenderPipeline.Universal.ShaderLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ShaderGraph.Editor.csproj">
-      <Project>{09482A34-4A33-F10F-AEA5-65AC5AD7CB05}</Project>
-      <Name>Unity.ShaderGraph.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.Editor.Shared.csproj">
-      <Project>{D5C09BA4-2C85-8853-9D7E-548B6D96DF32}</Project>
-      <Name>Unity.RenderPipelines.Core.Editor.Shared</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{98B1BEF4-07E1-EEFD-1F01-873547AE90DD}</Project>
-      <Name>UnityEditor.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
