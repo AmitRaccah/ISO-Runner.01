@@ -102,6 +102,8 @@ public class MonsterChaser : MonoBehaviour
 
     public void SetWaiting(Transform outsideWaitPoint)
     {
+        Debug.Log("MonsterChaser: SetWaiting called. waitPoint=" + (outsideWaitPoint != null ? outsideWaitPoint.name : "NULL"), this);
+
         isWaiting = true;
         waitPoint = outsideWaitPoint;
 
@@ -121,6 +123,8 @@ public class MonsterChaser : MonoBehaviour
 
     public void ResumeChaseWithBoost()
     {
+        Debug.Log("MonsterChaser: ResumeChaseWithBoost called.", this);
+
         isWaiting = false;
         waitPoint = null;
 
