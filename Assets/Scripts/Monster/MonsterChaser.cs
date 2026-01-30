@@ -26,9 +26,9 @@ public class MonsterChaser : MonoBehaviour
     [SerializeField] private Collider playerCollider;
 
     [Header("Boost")]
-    [SerializeField] private float escapeBoostDistance = 12f;
+    [SerializeField] private float boostStartDistance = 10f;
+    [SerializeField] private float boostStopDistance = 9f;
     [SerializeField] private float boostSpeed = 12f;
-    [SerializeField] private float boostRecoverSeconds = 2f;
 
     private ITrailProvider trailProvider;
 
@@ -46,7 +46,7 @@ public class MonsterChaser : MonoBehaviour
 
     // Speed state
     private float currentSpeed;
-    private Coroutine boostRoutine;
+    private bool isBoosting;
 
     private void Awake()
     {
@@ -90,12 +90,6 @@ public class MonsterChaser : MonoBehaviour
             StopCoroutine(routine);
             routine = null;
         }
-
-        if (boostRoutine != null)
-        {
-            StopCoroutine(boostRoutine);
-            boostRoutine = null;
-        }
     }
 
     // --- API: called from room logic ---
@@ -136,7 +130,7 @@ public class MonsterChaser : MonoBehaviour
             trailProvider.Clear();
         }
 
-        StartBoost();
+        StartBoostState();
     }
 
     // --- core loop ---
@@ -160,13 +154,13 @@ public class MonsterChaser : MonoBehaviour
 
             float distToPlayer = GetDistanceToPlayer();
 
-            // escape boost (player too far)
-            if (distToPlayer >= escapeBoostDistance)
+            if (isBoosting == false && distToPlayer >= boostStartDistance)
             {
-                if (boostRoutine == null)
-                {
-                    StartBoost();
-                }
+                StartBoostState();
+            }
+            else if (isBoosting == true && distToPlayer <= boostStopDistance)
+            {
+                StopBoostState();
             }
 
             // your original close logic (unchanged)
@@ -269,45 +263,15 @@ public class MonsterChaser : MonoBehaviour
 
     // --- boost ---
 
-    private void StartBoost()
+    private void StartBoostState()
     {
-        if (boostRoutine != null)
-        {
-            StopCoroutine(boostRoutine);
-            boostRoutine = null;
-        }
-
-        boostRoutine = StartCoroutine(BoostRoutine());
+        isBoosting = true;
+        currentSpeed = boostSpeed;
     }
 
-    private IEnumerator BoostRoutine()
+    private void StopBoostState()
     {
-        float startSpeed = boostSpeed;
-        float endSpeed = moveSpeed;
-
-        currentSpeed = startSpeed;
-
-        float duration = boostRecoverSeconds;
-        if (duration <= 0f)
-        {
-            currentSpeed = endSpeed;
-            boostRoutine = null;
-            yield break;
-        }
-
-        float t = 0f;
-
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-
-            float p = t / duration;
-            currentSpeed = Mathf.Lerp(startSpeed, endSpeed, p);
-
-            yield return null;
-        }
-
-        currentSpeed = endSpeed;
-        boostRoutine = null;
+        isBoosting = false;
+        currentSpeed = moveSpeed;
     }
 }
