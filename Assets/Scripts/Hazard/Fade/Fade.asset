@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c38094dd5cf0bb84aa4601af9de7ec81, type: 3}
-  m_Name: Gold
-  m_EditorClassIdentifier: Assembly-CSharp::CurrencyData
-  currencyName: Gold
-  value: -10
-  debugColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  m_Script: {fileID: 11500000, guid: 480933dc67247f8459d3e89597bce980, type: 3}
+  m_Name: Fade
+  m_EditorClassIdentifier: Assembly-CSharp::FadeData
+  fadeOutSeconds: 0.5
+  holdBlackSeconds: 1
+  fadeInSeconds: 0.5

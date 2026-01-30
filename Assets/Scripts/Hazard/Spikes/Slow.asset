@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c38094dd5cf0bb84aa4601af9de7ec81, type: 3}
-  m_Name: Gold
-  m_EditorClassIdentifier: Assembly-CSharp::CurrencyData
-  currencyName: Gold
-  value: -10
-  debugColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  m_Script: {fileID: 11500000, guid: 02c73976ab0b3d648a2425d30797aa6e, type: 3}
+  m_Name: Slow
+  m_EditorClassIdentifier: Assembly-CSharp::SlowData
+  decreaseBy: 5
+  durationSeconds: 1
