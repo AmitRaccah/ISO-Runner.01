@@ -1,63 +1,63 @@
-using UnityEngine;
+// using UnityEngine;
 
-public class MonsterRoomController : MonoBehaviour
-{
-    [SerializeField] private MonsterChaser monster;
+// public class MonsterRoomController : MonoBehaviour
+// {
+//     [SerializeField] private MonsterChaser monster;
 
-    private Transform lastWaitPoint;
+//     private Transform lastWaitPoint;
 
-    private bool isPlayerInRoom;
-    private bool isRoomCompleted;
+//     private bool isPlayerInRoom;
+//     private bool isRoomCompleted;
 
-    private void OnEnable()
-    {
-        RoomStarter.OnPlayerEnteredRoom += HandlePlayerEnteredRoom;
-        RoomManager.OnRoomCompleted += HandleRoomCompleted;
-        ExitGateTrigger.OnPlayerPassedExitGate += HandlePlayerPassedExitGate;
-    }
+//     private void OnEnable()
+//     {
+//         RoomStarter.OnPlayerEnteredRoom += HandlePlayerEnteredRoom;
+//         RoomManager.OnRoomCompleted += HandleRoomCompleted;
+//         ExitGateTrigger.OnPlayerPassedExitGate += HandlePlayerPassedExitGate;
+//     }
 
-    private void OnDisable()
-    {
-        RoomStarter.OnPlayerEnteredRoom -= HandlePlayerEnteredRoom;
-        RoomManager.OnRoomCompleted -= HandleRoomCompleted;
-        ExitGateTrigger.OnPlayerPassedExitGate -= HandlePlayerPassedExitGate;
-    }
+//     private void OnDisable()
+//     {
+//         RoomStarter.OnPlayerEnteredRoom -= HandlePlayerEnteredRoom;
+//         RoomManager.OnRoomCompleted -= HandleRoomCompleted;
+//         ExitGateTrigger.OnPlayerPassedExitGate -= HandlePlayerPassedExitGate;
+//     }
 
-    private void HandlePlayerEnteredRoom(Transform waitPoint)
-    {
-        isPlayerInRoom = true;
-        isRoomCompleted = false;
+//     private void HandlePlayerEnteredRoom(Transform waitPoint)
+//     {
+//         isPlayerInRoom = true;
+//         isRoomCompleted = false;
 
-        lastWaitPoint = waitPoint;
+//         lastWaitPoint = waitPoint;
 
-        if (monster != null && lastWaitPoint != null)
-        {
-            monster.SetWaiting(lastWaitPoint);
-        }
-    }
+//         if (monster != null && lastWaitPoint != null)
+//         {
+//             monster.SetWaiting(lastWaitPoint);
+//         }
+//     }
 
-    private void HandleRoomCompleted()
-    {
-        isRoomCompleted = true;
-    }
+//     private void HandleRoomCompleted()
+//     {
+//         isRoomCompleted = true;
+//     }
 
-    private void HandlePlayerPassedExitGate()
-    {
-        if (isPlayerInRoom == false)
-        {
-            return;
-        }
+//     private void HandlePlayerPassedExitGate()
+//     {
+//         if (isPlayerInRoom == false)
+//         {
+//             return;
+//         }
 
-        if (isRoomCompleted == false)
-        {
-            return;
-        }
+//         if (isRoomCompleted == false)
+//         {
+//             return;
+//         }
 
-        isPlayerInRoom = false;
+//         isPlayerInRoom = false;
 
-        if (monster != null)
-        {
-            monster.ResumeChaseWithBoost();
-        }
-    }
-}
+//         if (monster != null)
+//         {
+//             monster.ResumeChaseWithBoost();
+//         }
+//     }
+// }

@@ -6,19 +6,29 @@ public class MonsterChaser : MonoBehaviour
     [SerializeField] private MonoBehaviour trailSource;
     [SerializeField] private Transform player;
 
+    [Header("Base Move")]
     [SerializeField] private float moveSpeed = 6f;
     [SerializeField] private float reachDistance = 0.1f;
 
+    [Header("Trail")]
     [SerializeField] private float catchUpDistance = 8f;
     [SerializeField] private int maxSkipsPerStep = 10;
 
-    [SerializeField] private float closeEnterDistance = 3f; // נכנס למצב קרוב
-    [SerializeField] private float closeExitDistance = 5f;  // יוצא ממצב קרוב
+    [Header("Close Mode")]
+    [SerializeField] private float closeEnterDistance = 3f;
+    [SerializeField] private float closeExitDistance = 5f;
 
+    [Header("Tick")]
     [SerializeField] private float tickInterval = 0.05f;
 
+    [Header("Optional Colliders (can be null)")]
     [SerializeField] private Collider monsterCollider;
     [SerializeField] private Collider playerCollider;
+
+    [Header("Boost")]
+    [SerializeField] private float escapeBoostDistance = 12f;
+    [SerializeField] private float boostSpeed = 12f;
+    [SerializeField] private float boostRecoverSeconds = 2f;
 
     private ITrailProvider trailProvider;
 
@@ -29,6 +39,14 @@ public class MonsterChaser : MonoBehaviour
     private WaitForSeconds waitTick;
 
     private bool isCloseMode;
+
+    // WAIT state
+    private bool isWaiting;
+    private Transform waitPoint;
+
+    // Speed state
+    private float currentSpeed;
+    private Coroutine boostRoutine;
 
     private void Awake()
     {
@@ -44,6 +62,7 @@ public class MonsterChaser : MonoBehaviour
             Debug.LogError("Player is NULL. Assign the player Transform.", this);
         }
 
+        // colliders are OPTIONAL
         if (monsterCollider == null)
         {
             monsterCollider = GetComponent<Collider>();
@@ -54,17 +73,9 @@ public class MonsterChaser : MonoBehaviour
             playerCollider = player.GetComponent<Collider>();
         }
 
-        if (monsterCollider == null)
-        {
-            Debug.LogError("MonsterCollider is NULL. Assign a Collider on the monster.", this);
-        }
-
-        if (playerCollider == null)
-        {
-            Debug.LogError("PlayerCollider is NULL. Assign a Collider on the player.", this);
-        }
-
         waitTick = new WaitForSeconds(tickInterval);
+
+        currentSpeed = moveSpeed;
     }
 
     private void OnEnable()
@@ -79,33 +90,92 @@ public class MonsterChaser : MonoBehaviour
             StopCoroutine(routine);
             routine = null;
         }
+
+        if (boostRoutine != null)
+        {
+            StopCoroutine(boostRoutine);
+            boostRoutine = null;
+        }
     }
+
+    // --- API: called from room logic ---
+
+    public void SetWaiting(Transform outsideWaitPoint)
+    {
+        isWaiting = true;
+        waitPoint = outsideWaitPoint;
+
+        isCloseMode = false;
+        hasTarget = false;
+
+        if (trailProvider != null)
+        {
+            trailProvider.Clear();
+        }
+
+        if (waitPoint != null)
+        {
+            transform.position = waitPoint.position;
+        }
+    }
+
+    public void ResumeChaseWithBoost()
+    {
+        isWaiting = false;
+        waitPoint = null;
+
+        isCloseMode = false;
+        hasTarget = false;
+
+        if (trailProvider != null)
+        {
+            trailProvider.Clear();
+        }
+
+        StartBoost();
+    }
+
+    // --- core loop ---
 
     private IEnumerator ChaseRoutine()
     {
         while (true)
         {
-            if (trailProvider == null || player == null || monsterCollider == null || playerCollider == null)
+            if (trailProvider == null || player == null)
             {
                 yield return null;
                 continue;
             }
 
-            float distToPlayer = GetColliderDistance(monsterCollider, playerCollider);
+            // if waiting outside room -> do nothing
+            if (isWaiting)
+            {
+                yield return null;
+                continue;
+            }
 
-            // מצב קרוב: נכנסים מתחת ל-enter
+            float distToPlayer = GetDistanceToPlayer();
+
+            // escape boost (player too far)
+            if (distToPlayer >= escapeBoostDistance)
+            {
+                if (boostRoutine == null)
+                {
+                    StartBoost();
+                }
+            }
+
+            // your original close logic (unchanged)
             if (isCloseMode == false && distToPlayer <= closeEnterDistance)
             {
                 isCloseMode = true;
                 hasTarget = false;
             }
-            // יוצאים רק מעל exit
             else if (isCloseMode == true && distToPlayer >= closeExitDistance)
             {
                 isCloseMode = false;
                 hasTarget = false;
 
-                // קריטי: זורקים מסלול ישן כדי לא לחזור אחורה
                 trailProvider.Clear();
             }
 
@@ -113,16 +183,14 @@ public class MonsterChaser : MonoBehaviour
             {
                 yield return null;
 
-                // רדיפה ישירה כשהוא קרוב
                 currentTarget = player.position;
 
-                float step = moveSpeed * Time.deltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, currentTarget, step);
+                float stepClose = currentSpeed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, currentTarget, stepClose);
 
                 continue;
             }
 
-            // מצב רחוק: טיק
             yield return waitTick;
 
             StepTrailChase(distToPlayer);
@@ -141,7 +209,7 @@ public class MonsterChaser : MonoBehaviour
             hasTarget = true;
         }
 
-        float step = moveSpeed * tickInterval;
+        float step = currentSpeed * tickInterval;
         transform.position = Vector3.MoveTowards(transform.position, currentTarget, step);
 
         float distToTarget = Vector3.Distance(transform.position, currentTarget);
@@ -181,10 +249,61 @@ public class MonsterChaser : MonoBehaviour
         return true;
     }
 
-    private float GetColliderDistance(Collider a, Collider b)
+    private float GetDistanceToPlayer()
     {
-        Vector3 aPoint = a.ClosestPoint(b.transform.position);
-        Vector3 bPoint = b.ClosestPoint(a.transform.position);
-        return Vector3.Distance(aPoint, bPoint);
+        // If both colliders exist -> accurate body-to-body distance
+        if (monsterCollider != null && playerCollider != null)
+        {
+            Vector3 aPoint = monsterCollider.ClosestPoint(player.position);
+            Vector3 bPoint = playerCollider.ClosestPoint(transform.position);
+            return Vector3.Distance(aPoint, bPoint);
+        }
+
+        // fallback -> center distance
+        return Vector3.Distance(transform.position, player.position);
+    }
+
+    // --- boost ---
+
+    private void StartBoost()
+    {
+        if (boostRoutine != null)
+        {
+            StopCoroutine(boostRoutine);
+            boostRoutine = null;
+        }
+
+        boostRoutine = StartCoroutine(BoostRoutine());
+    }
+
+    private IEnumerator BoostRoutine()
+    {
+        float startSpeed = boostSpeed;
+        float endSpeed = moveSpeed;
+
+        currentSpeed = startSpeed;
+
+        float duration = boostRecoverSeconds;
+        if (duration <= 0f)
+        {
+            currentSpeed = endSpeed;
+            boostRoutine = null;
+            yield break;
+        }
+
+        float t = 0f;
+
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+
+            float p = t / duration;
+            currentSpeed = Mathf.Lerp(startSpeed, endSpeed, p);
+
+            yield return null;
+        }
+
+        currentSpeed = endSpeed;
+        boostRoutine = null;
     }
 }
