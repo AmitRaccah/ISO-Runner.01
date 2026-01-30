@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\Hazard\Fade\FadeZone.cs" />
     <Compile Include="Assets\Scripts\Camera\FollowPositionOnly.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualTouchZone.cs" />
+    <Compile Include="Assets\Scripts\Hazard\HazardSideToSide.cs" />
     <Compile Include="Assets\Scripts\Currency\CollectibleBase.cs" />
     <Compile Include="Assets\Scripts\Room\MonsterRoomController.cs" />
     <Compile Include="Assets\Scripts\Hazard\Spikes\PlayerSpeedModifier.cs" />

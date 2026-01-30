@@ -30,6 +30,10 @@ public class MonsterChaser : MonoBehaviour
     [SerializeField] private float boostStopDistance = 9f;
     [SerializeField] private float boostSpeed = 12f;
 
+    [Header("Waiting Move")]
+    [SerializeField] private float waitingMoveSpeed = 6f;
+    [SerializeField] private float waitReachDistance = 0.1f;
+
     private ITrailProvider trailProvider;
 
     private Vector3 currentTarget;
@@ -43,6 +47,7 @@ public class MonsterChaser : MonoBehaviour
     // WAIT state
     private bool isWaiting;
     private Transform waitPoint;
+    private bool isGoingToWaitPoint;
 
     // Speed state
     private float currentSpeed;
@@ -99,6 +104,7 @@ public class MonsterChaser : MonoBehaviour
         Debug.Log("MonsterChaser: SetWaiting called. waitPoint=" + (outsideWaitPoint != null ? outsideWaitPoint.name : "NULL"), this);
 
         isWaiting = true;
+        isGoingToWaitPoint = true;
         waitPoint = outsideWaitPoint;
 
         isCloseMode = false;
@@ -109,10 +115,6 @@ public class MonsterChaser : MonoBehaviour
             trailProvider.Clear();
         }
 
-        if (waitPoint != null)
-        {
-            transform.position = waitPoint.position;
-        }
     }
 
     public void ResumeChaseWithBoost()
@@ -120,6 +122,7 @@ public class MonsterChaser : MonoBehaviour
         Debug.Log("MonsterChaser: ResumeChaseWithBoost called.", this);
 
         isWaiting = false;
+        isGoingToWaitPoint = false;
         waitPoint = null;
 
         isCloseMode = false;
@@ -141,6 +144,21 @@ public class MonsterChaser : MonoBehaviour
         {
             if (trailProvider == null || player == null)
             {
+                yield return null;
+                continue;
+            }
+
+            if (isWaiting && isGoingToWaitPoint && waitPoint != null)
+            {
+                float stepToWait = waitingMoveSpeed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, waitPoint.position, stepToWait);
+
+                float distToWait = Vector3.Distance(transform.position, waitPoint.position);
+                if (distToWait <= waitReachDistance)
+                {
+                    isGoingToWaitPoint = false;
+                }
+
                 yield return null;
                 continue;
             }
