@@ -3,18 +3,13 @@ using UnityEngine;
 
 public class KeyItem : CollectibleBase
 {
-    public static event Action<KeyData> OnKeyCollected;
-
-    [SerializeField] private KeyData key;
+    public static event Action OnKeyCollected;
 
     protected override void OnCollectedBy(GameObject collector)
     {
-        if (key == null)
+        if (OnKeyCollected != null)
         {
-            Debug.LogWarning("KeyItem has no KeyData assigned.", this);
-            return;
+            OnKeyCollected.Invoke();
         }
-
-        OnKeyCollected?.Invoke(key);
     }
 }
