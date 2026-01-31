@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CurrencyData
   currencyName: Gold
   value: 1
+  collectSfx: {fileID: 8300000, guid: b4bf7944f5f44ab499e63c3ca8ce450e, type: 3}
+  collectSfxVolume: 1
   debugColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

@@ -26,14 +26,14 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 86a5723a7fa468b4aab737d6f473185b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 2048
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 106a1450b66e92d4584cbad6dfbf0e60, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -697,6 +697,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6107820701694558358, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107820701694558358, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107820701694558358, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6258823794305374224, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -779,7 +791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8347085520761158253, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
       propertyPath: m_text
-      value: 'by Amit, Denis, Geffen, Michael, Tomas
+      value: 'by Amit, Denis, Geffen, Michael, Tomas and Mor
 
         GGJ 2026 IAC'
       objectReference: {fileID: 0}
@@ -1704,7 +1716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ced021276a5fc54fb86b0879bff31ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneMusicStarter
-  musicClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
+  musicClip: {fileID: 8300000, guid: faff27e9b45a20141a57338d42d27a04, type: 3}
   loop: 1
   volume: 1
   fade: 1
