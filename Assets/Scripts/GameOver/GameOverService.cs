@@ -4,10 +4,6 @@ public class GameOverService : MonoBehaviour
 {
     [SerializeField] private GameOverUI gameOverUI;
 
-    [Header("Messages")]
-    [SerializeField] private string caughtMessage = "GAME OVER\nהמפלצת תפסה אותך!";
-    [SerializeField] private string winMessage = "כל הכבוד!\nהגעת לסוף!";
-
     private bool isGameOver;
 
     private void Awake()
@@ -20,17 +16,17 @@ public class GameOverService : MonoBehaviour
 
     private void OnEnable()
     {
-        MonsterCatchTrigger.OnPlayerCaught += HandlePlayerCaught;
-        FinishTrigger.OnPlayerReachedFinish += HandlePlayerReachedFinish;
+        MonsterCatchTrigger.OnPlayerCaught += HandleGameOver;
+        FinishTrigger.OnPlayerReachedFinish += HandleGameOver;
     }
 
     private void OnDisable()
     {
-        MonsterCatchTrigger.OnPlayerCaught -= HandlePlayerCaught;
-        FinishTrigger.OnPlayerReachedFinish -= HandlePlayerReachedFinish;
+        MonsterCatchTrigger.OnPlayerCaught -= HandleGameOver;
+        FinishTrigger.OnPlayerReachedFinish -= HandleGameOver;
     }
 
-    private void HandlePlayerCaught()
+    private void HandleGameOver()
     {
         if (isGameOver)
         {
@@ -41,22 +37,7 @@ public class GameOverService : MonoBehaviour
 
         if (gameOverUI != null)
         {
-            gameOverUI.Show(caughtMessage);
-        }
-    }
-
-    private void HandlePlayerReachedFinish()
-    {
-        if (isGameOver)
-        {
-            return;
-        }
-
-        isGameOver = true;
-
-        if (gameOverUI != null)
-        {
-            gameOverUI.Show(winMessage);
+            gameOverUI.Show();
         }
     }
 }
