@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 3640324955306230713}
   - component: {fileID: 523115514742002934}
   - component: {fileID: 1904050374695049733}
-  - component: {fileID: 6819977752540189799}
+  - component: {fileID: 8394027401652738459}
+  - component: {fileID: 3786668473793019125}
+  - component: {fileID: 8261572480117918634}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -334,8 +336,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4785894271678482762}
   m_Mesh: {fileID: 0}
---- !u!64 &6819977752540189799
-MeshCollider:
+--- !u!65 &8394027401652738459
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -349,10 +351,35 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 4, y: 4, z: 1}
+  m_Center: {x: 0.0000019073486, y: 0, z: 0}
+--- !u!114 &3786668473793019125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4785894271678482762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4753d04eea77a5f4c85229b40fe4c695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitDoor
+  doorObject: {fileID: 7784380582943620529, guid: e45ba592eabdbc444984fb1a925308b9, type: 3}
+--- !u!114 &8261572480117918634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4785894271678482762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e998e799c9ce04e9b58f0a731383f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitGateTrigger
+  room: {fileID: 11400000, guid: 022265823547e5641a1d18bab761d99e, type: 2}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2687970471192255450}
   - component: {fileID: 7938022516063463669}
   - component: {fileID: 590161310828584898}
+  - component: {fileID: 2752487764778954226}
   m_Layer: 0
   m_Name: Dimond_5
   m_TagString: Untagged
@@ -356,3 +357,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &2752487764778954226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5105343544640803981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4785cfcb990b2489777f2839db6e32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CurrencyItem
+  disableOnCollect: 1
+  data: {fileID: 11400000, guid: 15b0bc917ae61e94e93a32175e4dd919, type: 2}

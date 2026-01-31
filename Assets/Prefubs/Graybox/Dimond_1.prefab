@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1509950058814811536}
   - component: {fileID: 40436098206806488}
   - component: {fileID: 8225624814493510089}
-  - component: {fileID: 9130798844240840148}
+  - component: {fileID: 5074609044836663890}
+  - component: {fileID: 322399656068424285}
   m_Layer: 0
   m_Name: Dimond_1
   m_TagString: Untagged
@@ -334,8 +335,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4703955594699958238}
   m_Mesh: {fileID: 0}
---- !u!64 &9130798844240840148
-MeshCollider:
+--- !u!114 &5074609044836663890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4703955594699958238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4785cfcb990b2489777f2839db6e32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CurrencyItem
+  disableOnCollect: 1
+  data: {fileID: 11400000, guid: 21c60a45ea31a814791be4dd088c0604, type: 2}
+--- !u!135 &322399656068424285
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -352,7 +367,6 @@ MeshCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 3
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
