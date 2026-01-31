@@ -12330,6 +12330,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4313620621975168563, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 722561196}
+    - target: {fileID: 4313620621975168563, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMainMenuClicked
+      objectReference: {fileID: 0}
     - target: {fileID: 5706055099632575611, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12353,6 +12361,14 @@ PrefabInstance:
     - target: {fileID: 5706055099632575611, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107820701694558358, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 722561196}
+    - target: {fileID: 6107820701694558358, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRestartClicked
       objectReference: {fileID: 0}
     - target: {fileID: 7890444179727945149, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -85567,6 +85583,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64855f936ddc99246a33d4de76c998c1, type: 3}
+--- !u!114 &722561196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2320879884537427146, guid: 64855f936ddc99246a33d4de76c998c1, type: 3}
+  m_PrefabInstance: {fileID: 722561195}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 666ad4ad23fef1947ac885c662296929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameOverUI
 --- !u!1 &729181624
 GameObject:
   m_ObjectHideFlags: 0
