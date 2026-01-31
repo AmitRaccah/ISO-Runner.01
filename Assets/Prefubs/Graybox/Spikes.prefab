@@ -349,6 +349,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpikeHazard
   slowData: {fileID: 11400000, guid: abc4146bad125044a85cc46da93a794d, type: 2}
+  hitSfx: {fileID: 8300000, guid: 2dda0ee235fc66c4aaa887491709ae51, type: 3}
+  hitSfxVolume: 1
 --- !u!65 &2955258613568746443
 BoxCollider:
   m_ObjectHideFlags: 0

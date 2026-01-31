@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomData
   requiredKeysCount: 1
   timeLimitSeconds: 20
+  roomMusic: {fileID: 8300000, guid: 75739360598eb3246a10155ab088754d, type: 3}
