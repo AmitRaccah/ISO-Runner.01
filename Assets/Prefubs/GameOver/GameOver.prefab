@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameOverUI
   panelRoot: {fileID: 0}
   enableMainMenuButton: 0
-  mainMenuSceneName: MainMenu
+  mainMenuSceneName: Main_Menu_Scene
