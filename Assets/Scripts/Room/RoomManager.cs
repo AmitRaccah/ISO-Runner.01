@@ -11,6 +11,24 @@ public class RoomManager : MonoBehaviour
 
     private int collectedKeysCount;
 
+    public RoomData CurrentRoom
+    {
+        get { return currentRoom; }
+    }
+
+    public bool IsRoomCompleted
+    {
+        get
+        {
+            if (currentRoom == null)
+            {
+                return false;
+            }
+
+            return collectedKeysCount >= currentRoom.requiredKeysCount;
+        }
+    }
+
     private void OnEnable()
     {
         KeyItem.OnKeyCollected += HandleKeyCollected;
