@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Hazard\Fade\ScreenFaderUI.cs" />
     <Compile Include="Assets\Scripts\UI\GameOverUI.cs" />
     <Compile Include="Assets\Scripts\GameOver\MonsterCatchTrigger.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenuUI.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\CanvasInputs\UICanvasControllerInput.cs" />
     <Compile Include="Assets\Scripts\GameStart\StartGameTrigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
