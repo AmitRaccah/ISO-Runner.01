@@ -223,6 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1804234725920778380}
   - component: {fileID: 4309296216758904301}
+  - component: {fileID: 6362468170217650127}
   - component: {fileID: 101775709663393310}
   - component: {fileID: 3149316312960753686}
   m_Layer: 5
@@ -279,6 +280,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &6362468170217650127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496561462795649087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167ecde5649cf5b4f9e6399ed71ce148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameOverService
+  gameOverUI: {fileID: 0}
 --- !u!114 &101775709663393310
 MonoBehaviour:
   m_ObjectHideFlags: 0

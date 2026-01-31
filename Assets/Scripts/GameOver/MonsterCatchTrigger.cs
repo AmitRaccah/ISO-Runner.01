@@ -5,15 +5,13 @@ public class MonsterCatchTrigger : MonoBehaviour
 {
     public static event Action OnPlayerCaught;
 
-    [Header("Settings")]
     [SerializeField] private string playerTag = "Player";
-    [SerializeField] private bool disableAfterCatch = true;
 
-    private bool didCatch;
+    private bool hasCaught;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (didCatch)
+        if (hasCaught)
         {
             return;
         }
@@ -23,21 +21,42 @@ public class MonsterCatchTrigger : MonoBehaviour
             return;
         }
 
-        if (!other.CompareTag(playerTag))
+        // 1) direct tag
+        if (other.CompareTag(playerTag))
         {
+            Catch();
             return;
         }
 
-        didCatch = true;
+        // 2) root tag (for cases like PlayerArmature / child colliders)
+        Transform root = other.transform.root;
+        if (root != null && root.CompareTag(playerTag))
+        {
+            Catch();
+            return;
+        }
+
+        // 3) parent chain (optional safety)
+        Transform parent = other.transform;
+        while (parent != null)
+        {
+            if (parent.CompareTag(playerTag))
+            {
+                Catch();
+                return;
+            }
+
+            parent = parent.parent;
+        }
+    }
+
+    private void Catch()
+    {
+        hasCaught = true;
 
         if (OnPlayerCaught != null)
         {
             OnPlayerCaught.Invoke();
-        }
-
-        if (disableAfterCatch)
-        {
-            gameObject.SetActive(false);
         }
     }
 }

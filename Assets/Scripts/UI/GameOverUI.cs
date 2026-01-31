@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,7 +5,6 @@ public class GameOverUI : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private GameObject panelRoot;
-    [SerializeField] private TMP_Text messageText;
 
     [Header("Main Menu")]
     [SerializeField] private bool enableMainMenuButton = false;
@@ -19,18 +17,13 @@ public class GameOverUI : MonoBehaviour
         Hide();
     }
 
-    public void Show(string message)
+    public void Show()
     {
         isShown = true;
 
         if (panelRoot != null)
         {
             panelRoot.SetActive(true);
-        }
-
-        if (messageText != null)
-        {
-            messageText.text = message;
         }
 
         Time.timeScale = 0f;
