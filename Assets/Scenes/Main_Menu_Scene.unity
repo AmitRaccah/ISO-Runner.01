@@ -879,7 +879,7 @@ PrefabInstance:
     - target: {fileID: 8347085520761158253, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 165b67b8f691831499bc4cecdb4211ab, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8347085520761158253, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
       propertyPath: m_fontColor.a
       value: 1
@@ -907,7 +907,7 @@ PrefabInstance:
     - target: {fileID: 8347085520761158253, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -8151448208879021587, guid: 165b67b8f691831499bc4cecdb4211ab, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8347085520761158253, guid: c3c5da6018cec364bac912f2c34f550f, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
@@ -1602,8 +1602,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: IsoRunner
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 165b67b8f691831499bc4cecdb4211ab, type: 2}
-  m_sharedMaterial: {fileID: -8151448208879021587, guid: 165b67b8f691831499bc4cecdb4211ab, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1849,7 +1849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6987d5f9a589204d9343d17d41264cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
-  gameplaySceneName: Graybox_Tomas_Update 4
+  gameplaySceneName: Graybox_Final_Art_PostPro
 --- !u!4 &1943258259
 Transform:
   m_ObjectHideFlags: 0
