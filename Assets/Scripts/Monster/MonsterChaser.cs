@@ -25,7 +25,7 @@ public class MonsterChaser : MonoBehaviour
     [SerializeField] private Collider monsterCollider;
     [SerializeField] private Collider playerCollider;
 
-    [Header("Boost")]
+    [Header("Boost (distance gated)")]
     [SerializeField] private float boostStartDistance = 10f;
     [SerializeField] private float boostStopDistance = 9f;
     [SerializeField] private float boostSpeed = 12f;
@@ -33,6 +33,10 @@ public class MonsterChaser : MonoBehaviour
     [Header("Waiting Move")]
     [SerializeField] private float waitingMoveSpeed = 6f;
     [SerializeField] private float waitReachDistance = 0.1f;
+
+    [Header("Game Start")]
+    [Tooltip("If true, monster won't chase until GameStartManager starts the game.")]
+    [SerializeField] private bool waitForGameStart = true;
 
     private ITrailProvider trailProvider;
 
@@ -44,10 +48,10 @@ public class MonsterChaser : MonoBehaviour
 
     private bool isCloseMode;
 
-    // WAIT state
+    // WAIT state (rooms / or game start)
     private bool isWaiting;
-    private Transform waitPoint;
     private bool isGoingToWaitPoint;
+    private Transform waitPoint;
 
     // Speed state
     private float currentSpeed;
@@ -67,7 +71,6 @@ public class MonsterChaser : MonoBehaviour
             Debug.LogError("Player is NULL. Assign the player Transform.", this);
         }
 
-        // colliders are OPTIONAL
         if (monsterCollider == null)
         {
             monsterCollider = GetComponent<Collider>();
@@ -81,15 +84,33 @@ public class MonsterChaser : MonoBehaviour
         waitTick = new WaitForSeconds(tickInterval);
 
         currentSpeed = moveSpeed;
+
+        if (waitForGameStart)
+        {
+            // Start in waiting mode until the start trigger fires
+            isWaiting = true;
+            isGoingToWaitPoint = false;
+            waitPoint = null;
+        }
     }
 
     private void OnEnable()
     {
+        if (waitForGameStart)
+        {
+            GameStartManager.OnGameStarted += HandleGameStarted;
+        }
+
         routine = StartCoroutine(ChaseRoutine());
     }
 
     private void OnDisable()
     {
+        if (waitForGameStart)
+        {
+            GameStartManager.OnGameStarted -= HandleGameStarted;
+        }
+
         if (routine != null)
         {
             StopCoroutine(routine);
@@ -97,15 +118,12 @@ public class MonsterChaser : MonoBehaviour
         }
     }
 
-    // --- API: called from room logic ---
-
-    public void SetWaiting(Transform outsideWaitPoint)
+    private void HandleGameStarted()
     {
-        Debug.Log("MonsterChaser: SetWaiting called. waitPoint=" + (outsideWaitPoint != null ? outsideWaitPoint.name : "NULL"), this);
-
-        isWaiting = true;
-        isGoingToWaitPoint = true;
-        waitPoint = outsideWaitPoint;
+        // Start chasing now (no boost forced here; boost is distance-gated anyway)
+        isWaiting = false;
+        isGoingToWaitPoint = false;
+        waitPoint = null;
 
         isCloseMode = false;
         hasTarget = false;
@@ -115,12 +133,31 @@ public class MonsterChaser : MonoBehaviour
             trailProvider.Clear();
         }
 
+        StopBoostState();
+    }
+
+    // --- API: called from room logic ---
+
+    public void SetWaiting(Transform outsideWaitPoint)
+    {
+        isWaiting = true;
+        waitPoint = outsideWaitPoint;
+
+        isGoingToWaitPoint = (waitPoint != null);
+
+        isCloseMode = false;
+        hasTarget = false;
+
+        if (trailProvider != null)
+        {
+            trailProvider.Clear();
+        }
+
+        StopBoostState();
     }
 
     public void ResumeChaseWithBoost()
     {
-        Debug.Log("MonsterChaser: ResumeChaseWithBoost called.", this);
-
         isWaiting = false;
         isGoingToWaitPoint = false;
         waitPoint = null;
@@ -148,22 +185,25 @@ public class MonsterChaser : MonoBehaviour
                 continue;
             }
 
+            // If waiting and need to walk to wait point
             if (isWaiting && isGoingToWaitPoint && waitPoint != null)
             {
-                float stepToWait = waitingMoveSpeed * Time.deltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, waitPoint.position, stepToWait);
+                Vector3 targetPos = waitPoint.position;
 
-                float distToWait = Vector3.Distance(transform.position, waitPoint.position);
-                if (distToWait <= waitReachDistance)
+                float stepWait = waitingMoveSpeed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, stepWait);
+
+                float dist = Vector3.Distance(transform.position, targetPos);
+                if (dist <= waitReachDistance)
                 {
-                    isGoingToWaitPoint = false;
+                    isGoingToWaitPoint = false; // stay idle at wait point
                 }
 
                 yield return null;
                 continue;
             }
 
-            // if waiting outside room -> do nothing
+            // If waiting (idle)
             if (isWaiting)
             {
                 yield return null;
@@ -172,6 +212,7 @@ public class MonsterChaser : MonoBehaviour
 
             float distToPlayer = GetDistanceToPlayer();
 
+            // Boost hysteresis
             if (isBoosting == false && distToPlayer >= boostStartDistance)
             {
                 StartBoostState();
@@ -181,7 +222,7 @@ public class MonsterChaser : MonoBehaviour
                 StopBoostState();
             }
 
-            // your original close logic (unchanged)
+            // Close mode enter/exit
             if (isCloseMode == false && distToPlayer <= closeEnterDistance)
             {
                 isCloseMode = true;
@@ -267,7 +308,6 @@ public class MonsterChaser : MonoBehaviour
 
     private float GetDistanceToPlayer()
     {
-        // If both colliders exist -> accurate body-to-body distance
         if (monsterCollider != null && playerCollider != null)
         {
             Vector3 aPoint = monsterCollider.ClosestPoint(player.position);
@@ -275,11 +315,8 @@ public class MonsterChaser : MonoBehaviour
             return Vector3.Distance(aPoint, bPoint);
         }
 
-        // fallback -> center distance
         return Vector3.Distance(transform.position, player.position);
     }
-
-    // --- boost ---
 
     private void StartBoostState()
     {
