@@ -5,4 +5,5 @@ public class RoomData : ScriptableObject
 {
     public int requiredKeysCount;
     public float timeLimitSeconds;
+    public AudioClip roomMusic;
 }

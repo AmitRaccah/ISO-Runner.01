@@ -6,6 +6,8 @@ public class SpikeHazard : MonoBehaviour
     public static event Action<SlowData> OnPlayerHitHazard;
 
     [SerializeField] private SlowData slowData;
+    [SerializeField] private AudioClip hitSfx;
+    [SerializeField] private float hitSfxVolume = 1f;
 
     private void Reset()
     {
@@ -13,27 +15,33 @@ public class SpikeHazard : MonoBehaviour
         col.isTrigger = true;
     }
 
-private void OnTriggerEnter(Collider other)
-{
-    Debug.Log("HAZARD TRIGGER ENTER: " + other.name + " tag=" + other.tag, this);
-
-    if (!other.CompareTag("Player"))
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("NOT PLAYER - ignored", this);
-        return;
-    }
+        Debug.Log("HAZARD TRIGGER ENTER: " + other.name + " tag=" + other.tag, this);
 
-    if (slowData == null)
-    {
-        Debug.LogWarning("SpikeHazard has no SlowData assigned.", this);
-        return;
-    }
+        if (!other.CompareTag("Player"))
+        {
+            Debug.Log("NOT PLAYER - ignored", this);
+            return;
+        }
 
-    Debug.Log("PLAYER HIT HAZARD -> SEND EVENT", this);
+        AudioService audioService = AudioService.Instance;
+        if (audioService != null)
+        {
+            audioService.PlaySfx(hitSfx, hitSfxVolume);
+        }
 
-    if (OnPlayerHitHazard != null)
-    {
-        OnPlayerHitHazard.Invoke(slowData);
+        if (slowData == null)
+        {
+            Debug.LogWarning("SpikeHazard has no SlowData assigned.", this);
+            return;
+        }
+
+        Debug.Log("PLAYER HIT HAZARD -> SEND EVENT", this);
+
+        if (OnPlayerHitHazard != null)
+        {
+            OnPlayerHitHazard.Invoke(slowData);
+        }
     }
-}
 }

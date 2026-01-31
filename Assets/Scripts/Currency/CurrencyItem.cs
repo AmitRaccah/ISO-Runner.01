@@ -16,5 +16,11 @@ public class CurrencyItem : CollectibleBase
         }
 
         OnCurrencyCollected?.Invoke(data);
+
+        AudioService audioService = AudioService.Instance;
+        if (audioService != null)
+        {
+            audioService.PlaySfx(data.collectSfx, data.collectSfxVolume);
+        }
     }
 }
