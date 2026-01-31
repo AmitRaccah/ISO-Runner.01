@@ -4,6 +4,7 @@
   <Project Path="Unity.RenderPipelines.GPUDriven.Runtime.csproj" />
   <Project Path="Unity.InputSystem.csproj" />
   <Project Path="Unity.ShaderGraph.Editor.csproj" />
+  <Project Path="Unity.FilmInternalUtilities.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.Runtime.csproj" />
   <Project Path="Unity.ProBuilder.csproj" />
   <Project Path="Unity.Timeline.Editor.csproj" />
@@ -21,6 +22,7 @@
   <Project Path="UnityEngine.TestRunner.csproj" />
   <Project Path="Unity.Searcher.Editor.csproj" />
   <Project Path="Unity.Burst.csproj" />
+  <Project Path="Unity.FilmInternalUtilities.Editor.csproj" />
   <Project Path="Unity.ProBuilder.Csg.csproj" />
   <Project Path="Cinemachine.csproj" />
   <Project Path="Unity.AI.Navigation.Editor.csproj" />
@@ -41,6 +43,8 @@
   <Project Path="Unity.AI.Navigation.csproj" />
   <Project Path="UnityEditor.UI.csproj" />
   <Project Path="Unity.TextMeshPro.csproj" />
+  <Project Path="Unity.Toonshader.csproj" />
+  <Project Path="Unity.Toonshader.Editor.csproj" />
   <Project Path="Unity.Burst.Editor.csproj" />
   <Project Path="Unity.AI.Navigation.Updater.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.2D.Editor.Overrides.csproj" />
