@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 7843014259487933749}
   - component: {fileID: 4233369901528102263}
   - component: {fileID: 3220647523037778645}
-  - component: {fileID: 38752311798489710}
+  - component: {fileID: 7295410013102313129}
+  - component: {fileID: 5172854602480874327}
+  - component: {fileID: 6616317352327838955}
   m_Layer: 0
   m_Name: Mask_Dynamic
   m_TagString: Untagged
@@ -334,8 +336,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4750270919918640148}
   m_Mesh: {fileID: 0}
---- !u!64 &38752311798489710
-MeshCollider:
+--- !u!114 &7295410013102313129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4750270919918640148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352f7db5e941d554b875585e9963d1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FadeZone
+  fadeData: {fileID: 11400000, guid: f35f6664c41c9824688b4a369706286b, type: 2}
+  disableOnTrigger: 1
+--- !u!114 &5172854602480874327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4750270919918640148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d203a1b58c4464285ce73abffb8f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HazardSideToSide
+  distance: 2
+  speed: 1
+  useLocalSpace: 1
+--- !u!65 &6616317352327838955
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -352,7 +383,6 @@ MeshCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 0.75, y: 0.75, z: 0.75}
+  m_Center: {x: 0, y: 0, z: 0}
