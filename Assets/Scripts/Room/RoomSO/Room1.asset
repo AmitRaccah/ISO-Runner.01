@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1724d6e82c0ced84b9b76b3075a0583b, type: 3}
   m_Name: Room1
   m_EditorClassIdentifier: Assembly-CSharp::RoomData
-  requiredKeysCount: 2
+  requiredKeysCount: 1
   timeLimitSeconds: 10
