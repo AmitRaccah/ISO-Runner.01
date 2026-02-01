@@ -29,6 +29,6 @@ public class RoomStarter : MonoBehaviour
             OnPlayerEnteredRoom.Invoke(monsterWaitPoint);
         }
 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 }
