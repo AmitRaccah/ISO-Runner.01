@@ -11,12 +11,14 @@ public class MonsterRoomController : MonoBehaviour
     {
         RoomStarter.OnPlayerEnteredRoom += HandlePlayerEnteredRoom;
         ExitGateTrigger.OnPlayerPassedExitGate += HandlePlayerPassedExitGate;
+        TimerService.OnTimerEnded += HandleTimerEnded;
     }
 
     private void OnDisable()
     {
         RoomStarter.OnPlayerEnteredRoom -= HandlePlayerEnteredRoom;
         ExitGateTrigger.OnPlayerPassedExitGate -= HandlePlayerPassedExitGate;
+        TimerService.OnTimerEnded -= HandleTimerEnded;
     }
 
     private void HandlePlayerEnteredRoom(Transform waitPoint)
@@ -63,6 +65,29 @@ public class MonsterRoomController : MonoBehaviour
         if (monster != null)
         {
             monster.ResumeChaseWithBoost();
+        }
+    }
+
+    private void HandleTimerEnded()
+    {
+        if (isPlayerInRoom == false)
+        {
+            return;
+        }
+
+        if (roomManager == null || roomManager.CurrentRoom == null)
+        {
+            return;
+        }
+
+        if (roomManager.IsRoomCompleted)
+        {
+            return;
+        }
+
+        if (monster != null)
+        {
+            monster.ResumeChase();
         }
     }
 }

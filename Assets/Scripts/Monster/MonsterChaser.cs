@@ -173,6 +173,23 @@ public class MonsterChaser : MonoBehaviour
         StartBoostState();
     }
 
+    public void ResumeChase()
+    {
+        isWaiting = false;
+        isGoingToWaitPoint = false;
+        waitPoint = null;
+
+        isCloseMode = false;
+        hasTarget = false;
+
+        if (trailProvider != null)
+        {
+            trailProvider.Clear();
+        }
+
+        StopBoostState();
+    }
+
     // --- core loop ---
 
     private IEnumerator ChaseRoutine()

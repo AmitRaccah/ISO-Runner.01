@@ -5,6 +5,7 @@ using UnityEngine;
 public class TimerService : MonoBehaviour
 {
     public static event Action<float> OnTimeChanged;
+    public static event Action OnTimerEnded;
 
     private Coroutine timerRoutine;
     private float remainingSeconds;
@@ -88,6 +89,10 @@ public class TimerService : MonoBehaviour
         }
 
         Debug.Log("TIMER END");
+        if (OnTimerEnded != null)
+        {
+            OnTimerEnded.Invoke();
+        }
         timerRoutine = null;
     }
 }
