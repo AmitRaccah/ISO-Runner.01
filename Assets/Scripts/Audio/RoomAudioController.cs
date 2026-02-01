@@ -6,11 +6,21 @@ public class RoomAudioController : MonoBehaviour
     [SerializeField] private bool loop = true;
     [SerializeField] private float volume = 1f;
     [SerializeField] private bool fade = true;
+    [SerializeField] private RoomManager roomManager;
+
+    private void Awake()
+    {
+        if (roomManager == null)
+        {
+            roomManager = FindObjectOfType<RoomManager>();
+        }
+    }
 
     private void OnEnable()
     {
         RoomManager.OnRoomStarted += HandleRoomStarted;
         ExitGateTrigger.OnPlayerPassedExitGate += HandleExitGate;
+        TryPlayCurrentRoom();
     }
 
     private void OnDisable()
@@ -55,5 +65,21 @@ public class RoomAudioController : MonoBehaviour
         }
 
         audioService.PlayMusic(corridorMusic, loop, volume, fade);
+    }
+
+    private void TryPlayCurrentRoom()
+    {
+        if (roomManager == null)
+        {
+            return;
+        }
+
+        RoomData currentRoom = roomManager.CurrentRoom;
+        if (currentRoom == null)
+        {
+            return;
+        }
+
+        HandleRoomStarted(currentRoom);
     }
 }
